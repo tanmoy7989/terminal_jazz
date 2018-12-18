@@ -5,9 +5,10 @@ export TERM=xterm-256color
 export PS1="\[\e[36;1m\]\@ \[\e[33;1m\]\h\[\e[32;1m\]\w> \[\e[0m\]"
 
 # color dir listing
-OS='uname -s'
-case "$OS" in 
-    "Darwin"|"FreeBSD")
+OS=`uname -s` 
+case "$OS" in
+    "Darwin"|"FreeBSD" ) 
+        # Apple doesnt allow dircolor variables so this workaround
         export CLICOLOR=1
         export LSCOLORS=ExFxCxDxBxegedabagacad
         alias ls='ls -l'
