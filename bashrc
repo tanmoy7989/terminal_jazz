@@ -4,23 +4,6 @@ export TERM=xterm-256color
 # color prompt and titlebar
 export PS1="\[\e[36;1m\]\@ \[\e[33;1m\]\h\[\e[32;1m\]\w> \[\e[0m\]"
 
-# color dir listing
-OS=`uname -s` 
-case "$OS" in
-    "Darwin"|"FreeBSD" ) 
-        # Apple doesnt allow dircolor variables so this workaround
-        export CLICOLOR=1
-        export LSCOLORS=ExFxCxDxBxegedabagacad
-        alias ls='ls -l'
-        ;;
-    "Linux")
-        DIR_COLORS="./dircolors"
-        eval "`dircolors -b $DIR_COLORS`"
-        alias ls='ls --color=auto -X -ohFrt'
-        alias dir='ls --color=auto --format=vertical -X'
-        ;;
-esac
-
 # color searches
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 
@@ -39,6 +22,25 @@ HISTSIZE=1000000
 HISTFILESIZE=2000000
 shopt -s histappend
 export HISTTIMEFORMAT="%F %T "
+
+# OSX / Linux switches
+OS=`uname -s` 
+case "$OS" in
+    "Darwin"|"FreeBSD" ) 
+        # Apple doesnt allow dircolor variables so this workaround
+        export CLICOLOR=1
+        export LSCOLORS=ExFxCxDxBxegedabagacad
+        alias ls='ls -l'
+        # get rid of those pesky .DS_Store files        
+        defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+        ;;
+    "Linux")
+        DIR_COLORS="./dircolors"
+        eval "`dircolors -b $DIR_COLORS`"
+        alias ls='ls --color=auto -X -ohFrt'
+        alias dir='ls --color=auto --format=vertical -X'
+        ;;
+esac
 
 ## PATHS
 #VMD
