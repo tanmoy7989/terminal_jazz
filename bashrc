@@ -60,6 +60,7 @@ alias mountzin='sshfs tsanyal@zin.cnsi.ucsb.edu:/home/cask0/home/tsanyal ~/zin -
 # ALIASES
 alias bashedit='vim ~/.bashrc'
 alias vimedit='vim ~/.vimrc'
+alias roku=$HOME/diy/roku/start_roku.sh
 
 ## FUNCTIONS
 # file extraction
