@@ -90,7 +90,7 @@ function fawk {
 
 
 ## BASIC ALIASES
-alias ls='ls -l'
-alias ll='ls -lta'
+alias ls='ls --color=auto -X -ohFrt'
+alias dir='ls --color=auto --format=vertical -X'
 alias bashedit='vim $HOME/.bashrc'
 alias vimedit='vim $HOME/.vimrc'
